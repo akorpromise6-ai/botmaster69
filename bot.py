@@ -1,24 +1,6 @@
-if isinstance(start, str):
-            try:
-                start = datetime.fromisoformat(start.replace("Z", "+00:00")).timestamp()
-            except Exception:
-                start = 0
-        if isinstance(end, str):
-            try:
-                end = datetime.fromisoformat(end.replace("Z", "+00:00")).timestamp()
-            except Exception:
-                end = float("inf")
-
-        # price can be number, string (wei), or nested
-        price = stage.get("price")
-        if isinstance(price, dict):
-            price = price.get("amount") or price.get("value")
-        try:
-            price = float(price) if price is not None else None
-        except (TypeError, ValueError):
+except (TypeError, ValueError):
             price = None
 
-        # free = 0 (or extremely small wei amount)
         if start <= now <= end and price is not None and price == 0:
             return True
     return False
