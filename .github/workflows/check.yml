@@ -5,6 +5,9 @@ on:
     - cron: "*/15 * * * *"   # every 15 minutes
   workflow_dispatch:         # allows manual run
 
+permissions:
+  contents: write
+
 jobs:
   check:
     runs-on: ubuntu-latest
